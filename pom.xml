@@ -84,7 +84,13 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <inherited>true</inherited>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <inherited>true</inherited>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -155,7 +161,8 @@
     <modules>
         <module>api</module>
         <module>nonxa</module>
-    </modules>   <profiles>
+    </modules>   
+    <profiles>
         <profile>
             <id>release</id>
             <build>
