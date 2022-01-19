@@ -1,6 +1,8 @@
 
 # Manorrock Sardine Project
 
+[![build](https://github.com/manorrock/sardine/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/sardine/actions/workflows/build.yml)
+
 The Manorrock Sardine Project delivers you with a JTA transaction manager.
 
 ## How do I contribute?
