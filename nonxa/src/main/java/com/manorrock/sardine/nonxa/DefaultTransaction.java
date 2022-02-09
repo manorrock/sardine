@@ -38,6 +38,7 @@ import jakarta.transaction.Transaction;
 import jakarta.transaction.TransactionManager;
 import java.lang.System.Logger;
 import static java.lang.System.Logger.Level.WARNING;
+import java.util.Collection;
 import javax.transaction.xa.XAResource;
 
 /**
@@ -75,7 +76,7 @@ public class DefaultTransaction implements Transaction {
     /**
      * Stores the XA resources.
      */
-    private ArrayList<XAResource> xaResources = new ArrayList<>();
+    private final ArrayList<XAResource> xaResources = new ArrayList<>();
 
     /**
      * Constructor.
@@ -102,16 +103,16 @@ public class DefaultTransaction implements Transaction {
         handleBeforeCompletion();
         try {
             switch (status) {
-                case Status.STATUS_COMMITTED:
-                    break;
-                case Status.STATUS_MARKED_ROLLBACK: {
+                case Status.STATUS_COMMITTED -> {
+                }
+                case Status.STATUS_MARKED_ROLLBACK -> {
                     rollback();
                     throw new HeuristicRollbackException();
                 }
-                case Status.STATUS_ROLLEDBACK: {
+                case Status.STATUS_ROLLEDBACK -> {
                     throw new RollbackException();
                 }
-                default: {
+                default -> {
                     status = Status.STATUS_COMMITTED;
                 }
             }
@@ -164,13 +165,34 @@ public class DefaultTransaction implements Transaction {
     public int getStatus() throws SystemException {
         return status;
     }
+    
+    /**
+     * {@return timeout}
+     */
+    public int getTimeout() {
+        return timeout;
+    }
+    
+    /**
+     * {@return the transaction manager}
+     */
+    public TransactionManager getTransactionManager() {
+        return transactionManager;
+    }
+    
+    /**
+     * {@return the XA resources}
+     */
+    public Collection<XAResource> getXAResources() {
+        return xaResources;
+    }
 
     /**
      * A private method that handles calling the afterCompletion method on each
      * synchronization registered.
      */
     private void handleAfterCompletion() {
-        if (synchronizations.size() > 0) {
+        if (!synchronizations.isEmpty()) {
             synchronizations.forEach(synchronization -> {
                 try {
                     synchronization.afterCompletion(status);
@@ -186,7 +208,7 @@ public class DefaultTransaction implements Transaction {
      * synchronization registered.
      */
     private void handleBeforeCompletion() {
-        if (synchronizations.size() > 0) {
+        if (!synchronizations.isEmpty()) {
             synchronizations.forEach(synchronization -> {
                 try {
                     synchronization.beforeCompletion();
