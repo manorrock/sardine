@@ -47,7 +47,7 @@ import javax.transaction.xa.XAResource;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class DefaultTransaction implements Transaction {
-    
+
     /**
      * Stores the logger.
      */
@@ -104,17 +104,16 @@ public class DefaultTransaction implements Transaction {
         try {
             switch (status) {
                 case Status.STATUS_COMMITTED -> {
+                    // nothing to do here.
                 }
                 case Status.STATUS_MARKED_ROLLBACK -> {
                     rollback();
                     throw new HeuristicRollbackException();
                 }
-                case Status.STATUS_ROLLEDBACK -> {
+                case Status.STATUS_ROLLEDBACK ->
                     throw new RollbackException();
-                }
-                default -> {
+                default ->
                     status = Status.STATUS_COMMITTED;
-                }
             }
         } finally {
             handleAfterCompletion();
@@ -158,30 +157,38 @@ public class DefaultTransaction implements Transaction {
     }
 
     /**
-     * {@return the status}
+     * {
+     *
+     * @return the status}
      * @throws SystemException when a serious error occurs.
      */
     @Override
     public int getStatus() throws SystemException {
         return status;
     }
-    
+
     /**
-     * {@return timeout}
+     * {
+     *
+     * @return timeout}
      */
     public int getTimeout() {
         return timeout;
     }
-    
+
     /**
-     * {@return the transaction manager}
+     * {
+     *
+     * @return the transaction manager}
      */
     public TransactionManager getTransactionManager() {
         return transactionManager;
     }
-    
+
     /**
-     * {@return the XA resources}
+     * {
+     *
+     * @return the XA resources}
      */
     public Collection<XAResource> getXAResources() {
         return xaResources;
