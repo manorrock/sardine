@@ -70,7 +70,7 @@ public @interface Transactional {
     /**
      * Defines the Transaction type.
      */
-    public static enum TxType {
+    public enum TxType {
         /**
          * A transaction is mandatory.
          */
