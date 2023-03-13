@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.manorrock.sardine</groupId>
     <artifactId>project</artifactId>
-    <version>21.10.0-SNAPSHOT</version>
+    <version>23.3.0</version>
     <packaging>pom</packaging>
     <name>Manorrock Sardine - Project</name>
     <description>
