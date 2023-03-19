@@ -21,6 +21,14 @@
             <url>https://raw.githubusercontent.com/manorrock/sardine/current/LICENSE</url>
         </license>
     </licenses>
+    <properties>
+        <eclipselink.version>4.0.1</eclipselink.version>
+        <h2.version>2.1.214</h2.version>
+        <jakarta.enterprise.cdi-api.version>4.0.1</jakarta.enterprise.cdi-api.version>
+        <jakarta.interceptor-api.verison>2.1.0</jakarta.interceptor-api.verison>
+        <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
+        <jakarta.transaction-api.version>2.0.1</jakarta.transaction-api.version>
+    </properties>
     <build>
         <pluginManagement>
             <plugins>
@@ -132,32 +140,42 @@
             <dependency>
                 <groupId>cloud.piranha.naming</groupId>
                 <artifactId>piranha-naming-impl</artifactId>
-                <version>21.9.0</version>
+                <version>23.3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>2.1.210</version>
+                <version>${h2.version}</version>
             </dependency>
             <dependency>
                 <groupId>jakarta.enterprise</groupId>
                 <artifactId>jakarta.enterprise.cdi-api</artifactId>
-                <version>3.0.0</version>
+                <version>${jakarta.enterprise.cdi-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.interceptor</groupId>
+                <artifactId>jakarta.interceptor-api</artifactId>
+                <version>${jakarta.interceptor-api.verison}</version>
             </dependency>
             <dependency>
                 <groupId>jakarta.persistence</groupId>
                 <artifactId>jakarta.persistence-api</artifactId>
-                <version>3.0.0</version>
+                <version>${jakarta.persistence-api.version}</version>
+            </dependency>
+            <dependency>                    
+                <groupId>jakarta.transaction</groupId>
+                <artifactId>jakarta.transaction-api</artifactId>
+                <version>${jakarta.transaction-api.version}</version>
             </dependency>
             <dependency>                
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>org.eclipse.persistence.core</artifactId>
-                <version>3.0.2</version>
+                <version>${eclipselink.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>org.eclipse.persistence.jpa</artifactId>
-                <version>3.0.2</version>
+                <version>${eclipselink.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -167,7 +185,6 @@
         </dependencies>
     </dependencyManagement>
     <modules>
-        <module>api</module>
         <module>nonxa</module>
     </modules>   
     <profiles>
