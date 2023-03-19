@@ -35,8 +35,9 @@
  * @author Manfred Riem (mriem@manorrock.com)
  */
 module com.manorrock.sardine.nonxa {
+    
     exports com.manorrock.sardine.nonxa;
     opens com.manorrock.sardine.nonxa;
-    requires com.manorrock.sardine.api;
+    requires jakarta.transaction;
     requires java.transaction.xa;
 }

@@ -35,13 +35,15 @@
  * @author Manfred Riem (mriem@manorrock.com)
  */
 module com.manorrock.sardine.nonxa.tests {
+
     exports com.manorrock.sardine.nonxa.tests;
     opens com.manorrock.sardine.nonxa.tests;
     requires cloud.piranha.naming.impl;
-    requires com.manorrock.sardine.api;
     requires com.manorrock.sardine.nonxa;
     requires com.h2database;
     requires jakarta.persistence;
+    requires jakarta.transaction;
     requires java.transaction.xa;
+    requires org.eclipse.persistence.core;
     requires org.junit.jupiter.api;
 }
