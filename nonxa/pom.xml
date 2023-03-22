@@ -50,8 +50,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>cloud.piranha.naming</groupId>
-            <artifactId>piranha-naming-impl</artifactId>
+            <groupId>com.manorrock.herring</groupId>
+            <artifactId>herring</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
