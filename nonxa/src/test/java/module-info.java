@@ -38,7 +38,7 @@ module com.manorrock.sardine.nonxa.tests {
 
     exports com.manorrock.sardine.nonxa.tests;
     opens com.manorrock.sardine.nonxa.tests;
-    requires cloud.piranha.naming.impl;
+    requires com.manorrock.herring;
     requires com.manorrock.sardine.nonxa;
     requires com.h2database;
     requires jakarta.persistence;

@@ -53,7 +53,7 @@ class JPADatabaseTest {
      */
     @Test
     void testJpaDatabase() throws Exception {
-        System.getProperties().put("java.naming.factory.initial", "cloud.piranha.naming.impl.DefaultInitialContextFactory");
+        System.getProperties().put("java.naming.factory.initial", "com.manorrock.herring.DefaultInitialContextFactory");
         InitialContext initialContext = new InitialContext();
         JdbcDataSource dataSource;
         try {
