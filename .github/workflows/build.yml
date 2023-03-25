@@ -30,7 +30,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 10
     - name: Set up Java
       uses: actions/setup-java@v2
       with:
@@ -41,6 +43,6 @@ jobs:
         mvn -B -ntp install verify site \
         sonar:sonar -Dsonar.projectKey=manorrock_sardine \
         -Dsonar.organization=manorrock-1 -Dsonar.host.url=https://sonarcloud.io \
-        -Dsonar.login=${{ secrets.SONAR_TOKEN }}
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
