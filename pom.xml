@@ -23,7 +23,7 @@
     </licenses>
     <properties>
         <eclipselink.version>4.0.1</eclipselink.version>
-        <h2.version>2.1.214</h2.version>
+        <h2.version>2.2.220</h2.version>
         <jakarta.enterprise.cdi-api.version>4.0.1</jakarta.enterprise.cdi-api.version>
         <jakarta.interceptor-api.verison>2.1.0</jakarta.interceptor-api.verison>
         <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
