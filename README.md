@@ -4,6 +4,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=manorrock_sardine&metric=bugs)](https://sonarcloud.io/summary/new_code?id=manorrock_sardine)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=manorrock_sardine&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=manorrock_sardine)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=manorrock_sardine&metric=coverage)](https://sonarcloud.io/summary/new_code?id=manorrock_sardine)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=manorrock_sardine&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=manorrock_sardine)
 
 The Manorrock Sardine Project delivers you with a JTA transaction manager.
 
