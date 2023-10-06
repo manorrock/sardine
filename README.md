@@ -1,7 +1,6 @@
 # Manorrock Sardine Project
 
 [![build](https://github.com/manorrock/sardine/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/sardine/actions/workflows/build.yml)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=manorrock_sardine&metric=bugs)](https://sonarcloud.io/summary/new_code?id=manorrock_sardine)
 
 The Manorrock Sardine Project delivers you with a JTA transaction manager.
 
