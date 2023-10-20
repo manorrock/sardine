@@ -227,6 +227,7 @@
     </dependencyManagement>
     <modules>
         <module>nonxa</module>
+        <module>xa</module>
     </modules>   
     <profiles>
         <profile>
