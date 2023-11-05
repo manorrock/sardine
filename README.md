@@ -9,6 +9,10 @@ The Manorrock Sardine Project delivers you with a JTA transaction managers.
 * Non-XA transaction manager
 * XA transaction (under development)
 
+## Where is the Jakarta Transactions specification?
+
+See [GitHub](https://github.com/jakartaee/transactions)
+
 ## How do I contribute?
 
 See [Contributing](CONTRIBUTING.md)
