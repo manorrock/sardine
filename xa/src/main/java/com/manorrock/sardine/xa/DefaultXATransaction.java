@@ -28,91 +28,70 @@ package com.manorrock.sardine.xa;
 
 import jakarta.transaction.HeuristicMixedException;
 import jakarta.transaction.HeuristicRollbackException;
-import jakarta.transaction.InvalidTransactionException;
-import jakarta.transaction.NotSupportedException;
 import jakarta.transaction.RollbackException;
+import jakarta.transaction.Synchronization;
 import jakarta.transaction.SystemException;
 import jakarta.transaction.Transaction;
 import jakarta.transaction.TransactionManager;
-import java.util.HashMap;
-import java.util.Map;
+import javax.transaction.xa.XAResource;
 
 /**
- * The default TransactionManager.
- *
+ * The default XA transaction.
+ * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultXATransactionManager implements TransactionManager {
+public class DefaultXATransaction implements Transaction {
 
-    /**
-     * Stores the timeout.
-     */
-    private int timeout;
-    
-    /**
-     * Stores the thread-to-transaction map.
-     */
-    private final Map<Thread, Transaction> threadTransactionMap;
-
-    /**
-     * Constructor.
-     */
-    public DefaultXATransactionManager() {
-        threadTransactionMap = new HashMap<>();
+    @Override
+    public void commit() throws RollbackException, HeuristicMixedException, HeuristicRollbackException, SecurityException, IllegalStateException, SystemException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void begin() throws NotSupportedException, SystemException {
-        DefaultXATransaction transaction = (DefaultXATransaction) getTransaction();
-        if (transaction == null) {
-            transaction = new DefaultXATransaction();
-            transaction.setTransactionManager(this);
-            transaction.setTimeout(timeout);
-            Thread currentThread = Thread.currentThread();
-            threadTransactionMap.put(currentThread, transaction);
-        } else {
-            throw new NotSupportedException("Nested transactions are not supported");
-        }
-        
+    public boolean delistResource(XAResource xaRes, int flag) throws IllegalStateException, SystemException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void commit() throws RollbackException, HeuristicMixedException,
-            HeuristicRollbackException, SecurityException,
-            IllegalStateException, SystemException {
+    public boolean enlistResource(XAResource xaRes) throws RollbackException, IllegalStateException, SystemException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public int getStatus() throws SystemException {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Transaction getTransaction() throws SystemException {
-        throw new UnsupportedOperationException();
+    public void registerSynchronization(Synchronization sync) throws RollbackException, IllegalStateException, SystemException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void resume(Transaction transaction)
-            throws InvalidTransactionException, IllegalStateException,
-            SystemException {
-    }
-
-    @Override
-    public void rollback() throws IllegalStateException, SecurityException,
-            SystemException {
+    public void rollback() throws IllegalStateException, SystemException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void setRollbackOnly() throws IllegalStateException, SystemException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void setTransactionTimeout(int timeout) throws SystemException {
+    /**
+     * Set the transaction manager.
+     * 
+     * @param transactionManager the transaction manager.
+     */
+    public void setTransactionManager(TransactionManager transactionManager) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public Transaction suspend() throws SystemException {
-        throw new UnsupportedOperationException();
+    /**
+     * Set the transaction timeout.
+     * 
+     * @param timeout the transaction timeout.
+     */
+    public void setTimeout(int timeout) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
