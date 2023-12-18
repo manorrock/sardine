@@ -46,4 +46,15 @@ public class DefaultXATransactionManagerTest {
             manager.begin();
         });
     }
+
+    /**
+     * Test commit method.
+     */
+    @Test
+    public void testCommit() {
+        DefaultXATransactionManager manager = new DefaultXATransactionManager();
+        assertThrows(UnsupportedOperationException.class, () -> {
+            manager.commit();
+        });
+    }
 }
