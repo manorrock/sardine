@@ -48,7 +48,7 @@ public class DefaultXATransactionManager implements TransactionManager {
      * Stores the timeout.
      */
     private int timeout;
-    
+
     /**
      * Stores the thread-to-transaction map.
      */
@@ -73,13 +73,20 @@ public class DefaultXATransactionManager implements TransactionManager {
         } else {
             throw new NotSupportedException("Nested transactions are not supported");
         }
-        
+
     }
 
     @Override
     public void commit() throws RollbackException, HeuristicMixedException,
             HeuristicRollbackException, SecurityException,
             IllegalStateException, SystemException {
+        Transaction transaction = getTransaction();
+        try {
+            transaction.commit();
+        } finally {
+            Thread currentThread = Thread.currentThread();
+            threadTransactionMap.remove(currentThread);
+        }
     }
 
     @Override
