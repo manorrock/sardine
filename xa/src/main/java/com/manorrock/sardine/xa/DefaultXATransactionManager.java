@@ -31,6 +31,7 @@ import jakarta.transaction.HeuristicRollbackException;
 import jakarta.transaction.InvalidTransactionException;
 import jakarta.transaction.NotSupportedException;
 import jakarta.transaction.RollbackException;
+import jakarta.transaction.Status;
 import jakarta.transaction.SystemException;
 import jakarta.transaction.Transaction;
 import jakarta.transaction.TransactionManager;
@@ -91,7 +92,14 @@ public class DefaultXATransactionManager implements TransactionManager {
 
     @Override
     public int getStatus() throws SystemException {
-        throw new UnsupportedOperationException();
+        int result;
+        Transaction transaction = getTransaction();
+        if (transaction != null) {
+            result = transaction.getStatus();
+        } else {
+            result = Status.STATUS_NO_TRANSACTION;
+        }
+        return result;
     }
 
     @Override
